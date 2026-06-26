@@ -164,8 +164,3 @@ variable "sse_algorithm" {
     default = "AES256"
 }
 
-variable "dynamodb_table_name" {
-    type = string
-    description = "DynamoDB table name for Terraform state locking"
-    default = "terraform-state-lock-1"
-}

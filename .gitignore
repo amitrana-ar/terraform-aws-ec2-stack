@@ -3,3 +3,4 @@ terraform.tfstate.backup
 .git
 aws-keypair-mumbai.pub
 .terraform
+.terraform.lock.hcl

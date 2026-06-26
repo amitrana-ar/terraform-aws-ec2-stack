@@ -82,19 +82,6 @@ resource "aws_s3_bucket_logging" "s3_logging" {
   target_prefix = "logs/"
 }
 
-resource "aws_dynamodb_table" "terraformm_state_lock" {
-  name           = var.dynamodb_table_name
-  billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "LockID"
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-  tags = {
-    Environment = "Dev"
-  }
-}
-
 resource "aws_instance" "ec2_instance" {
     for_each = var.ec2_instance_type
     ami           = each.value.ami
