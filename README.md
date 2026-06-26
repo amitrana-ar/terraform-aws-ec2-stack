@@ -27,8 +27,7 @@ This project provisions EC2 instances with web servers (Apache & Nginx) on AWS u
 │  └──────────────────────────────────────────────┘   │
 │                                                      │
 │  ┌──────────────────────────────────────────────┐   │
-│  │   Remote State Backend (managed by           │   │
-│  │   remote-infra project)                      │   │
+│  │                                              │   │
 │  │                                              │   │
 │  │   S3 Bucket: terraform-state-1               │   │
 │  │   Key:       dev/terraform.tfstate           │   │
@@ -45,7 +44,7 @@ This project provisions EC2 instances with web servers (Apache & Nginx) on AWS u
 | `aws_instance` | nginx-server | EC2 with Nginx (t3.large) |
 | `aws_security_group` | terraform-sg | Allows SSH, HTTP, HTTPS |
 | `aws_default_vpc` | terraform-vpc | Default VPC |
-| `aws_key_pair` | aws-keypair-mumbai | SSH Key Pair |
+| `aws_key_pair` | keypair_name | SSH Key Pair |
 
 ## Security Group Rules
 
@@ -76,7 +75,7 @@ backend "s3" {
 
 - Terraform >= 1.10
 - AWS CLI configured with appropriate permissions
-- SSH public key at `aws-keypair-mumbai.pub`
+- SSH public key at `keypair_name.pub`
 - S3 bucket (`terraform-state-1`) already created via `remote-infra` project
 
 ## Project Structure
@@ -87,7 +86,7 @@ terraform-aws-ec2-stack/
 ├── variable.tf       # Input variables
 ├── output.tf         # Output values
 ├── terraform.tf      # Provider and backend config
-├── aws-keypair-mumbai.pub
+├── keypair_name.pub
 └── userdata/
     ├── apache-install.sh
     └── nginx-install.sh
@@ -124,7 +123,7 @@ terraform destroy
 | Variable | Default | Description |
 |---|---|---|
 | `ec2_instance_type` | apache/nginx map | EC2 instance definitions (ami, type, userdata) |
-| `ec2_key_pair_name` | `aws-keypair-mumbai` | SSH key pair name |
+| `ec2_key_pair_name` | `keypair_name` | SSH key pair name |
 | `ec2_root_volume_size` | `30` | Root EBS volume size in GB |
 | `ec2_security_group_name` | `terraform-sg` | Security group name |
 | `ec2_vpc_name` | `terraform-vpc` | VPC name tag |
