@@ -6,11 +6,11 @@ This project provisions EC2 instances with web servers (Apache & Nginx) on AWS u
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                  AWS (ap-south-1)                    │
-│                                                      │
+│                  AWS (ap-south-1)                   │
+│                                                     │
 │  ┌──────────────────────────────────────────────┐   │
-│  │              Default VPC                      │   │
-│  │                                               │   │
+│  │              Default VPC                     │   │
+│  │                                              │   │
 │  │   ┌─────────────────┐  ┌─────────────────┐   │   │
 │  │   │  apache-server  │  │  nginx-server   │   │   │
 │  │   │  (t3.micro)     │  │  (t3.large)     │   │   │
@@ -25,7 +25,7 @@ This project provisions EC2 instances with web servers (Apache & Nginx) on AWS u
 │  │            │   Port 443 (HTTPS) │            │   │
 │  │            └────────────────────┘            │   │
 │  └──────────────────────────────────────────────┘   │
-│                                                      │
+│                                                     │
 │  ┌──────────────────────────────────────────────┐   │
 │  │                                              │   │
 │  │                                              │   │
