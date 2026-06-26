@@ -1,0 +1,5 @@
+terraform.tfstate
+terraform.tfstate.backup
+.git
+aws-keypair-mumbai.pub
+.terraform
